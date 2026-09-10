@@ -19,17 +19,6 @@
 - **Сюжет**: события привязаны к случайным дням в окнах (реиграбельность) —
   нашествие, сбор войска, крестовый поход.
 
-## Архитектура
-
-Чистое разделение слоёв в одном проекте:
-
-- **Данные** (`Settlement`, `Resources`, `Army`, `Unit`/`Militia`/`Cavalry`/`LightInfantry`, `Building`).
-- **Системы-логика** (`BattleSystem`, `EconomySystem`, `RecruitmentSystem`, `BuildingSystem`, `TradeSystem`).
-- **Состояния** (паттерн State: `IGameState`, `GameStateMachine`, `VillageDayState`,
-  `RaidState`, `InvasionState`, `CrusadeState`, `VictoryState`, `GameOverState`).
-- **Инфраструктура**: `GameContext` (DI-контейнер), `IGameView`/`ConsoleView` (ввод/вывод за
-  интерфейсом — удобно для порта в Unity), фабрики, `IRandom` (тестируемость/детерминизм),
-  и `Balance` — единая точка гейм-дизайна, где собраны все балансные числа.
 
 ## Запуск
 
@@ -42,7 +31,7 @@ dotnet run
 ## Настройка баланса
 
 Все игровые числа (статы юнитов, экономика, составы врагов, окна сюжетных событий,
-поведение боя) собраны в статическом классе `Balance` в `CleanMedieval.cs` —
+поведение боя) собраны в статическом классе `Balance` —
 меняйте их там, не трогая логику.
 
 ## Лицензия
